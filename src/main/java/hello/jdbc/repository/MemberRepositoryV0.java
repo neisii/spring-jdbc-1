@@ -16,12 +16,12 @@ public class MemberRepositoryV0 {
         Connection con = null;
         PreparedStatement pstmt = null;
 
-        con = getConnection();
         try {
+            con = getConnection();
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, member.getMemberId());
             pstmt.setInt(2, member.getMoney());
-            pstmt.execute();
+            pstmt.executeUpdate();
             return member;
         } catch (SQLException e) {
             log.error("db error", e);
@@ -37,8 +37,8 @@ public class MemberRepositoryV0 {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        con = getConnection();
         try {
+            con = getConnection();
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, memberId);
 
@@ -65,8 +65,8 @@ public class MemberRepositoryV0 {
         Connection con = null;
         PreparedStatement pstmt = null;
 
-        con = getConnection();
         try {
+            con = getConnection();
             pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, money);
             pstmt.setString(2, memberId);
@@ -85,8 +85,8 @@ public class MemberRepositoryV0 {
         Connection con = null;
         PreparedStatement pstmt = null;
 
-        con = getConnection();
         try {
+            con = getConnection();
             pstmt = con.prepareStatement(sql);
             pstmt.setString(1, memberId);
             int resultSize = pstmt.executeUpdate();
